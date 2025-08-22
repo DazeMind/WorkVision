@@ -1,0 +1,258 @@
+Flujo de registro:
+una persona podra registrarse en el sistme donde se creara un usuario sin Rol, esto redirijira al perfil donde podra Crear una empresa y rellenar sus datos bancarios.
+al crear almenos una empresa se le asignara el rol de "dueño" y podra acceder al dashboard y demas opciones.
+para usuarios nuevos (gratuitos) podran registrar solo una empresa y podra acceder a limitadas opcioens.
+
+Colaboradores:
+Crear: en el registro principal se podran registrar usuarios que son dueños de empresas o estan a cargo de estas mismas donde se les asignara el rol de "dueño"
+ellos podran crear trabajadores los cuales seran asociados a una empresa "company" ademas se creara un usuario para este trabajador con el rol "worker".
+
+Editar:
+
+Eliminar:
+
+
+Crear proyectos:
+
+
+# Funcionalidades del Proyecto WorkVision
+
+WorkVision es un sistema gestor de proyectos con tres módulos principales: **Colaboradores**, **Proyectos** y **Finanzas**. A continuación, se detallan todas las funcionalidades actuales y propuestas para cada módulo, así como funciones generales que enriquecen el sistema.
+
+---
+
+## **1. Colaboradores**
+
+### Funcionalidades Actuales:
+- **Roles de usuario:**
+  - El usuario principal tiene el rol de "dueño", que puede registrar empresas y trabajadores.
+  - Los trabajadores tienen el rol "worker".
+  - Roles adicionales predefinidos: "secretario", "responsable" y "contratista" (aún sin funciones específicas).
+- **Creación de colaboradores:** Cada colaborador recibe un usuario para acceder al sistema.
+- **Asignación a proyectos:** Los colaboradores se asignan a proyectos específicos y pueden realizar tareas.
+- **Control de asistencia:** Registro diario de asistencia para cada colaborador.
+- **Asignación de labores:** Cada colaborador tiene una especialidad o habilidad que define su rol en el proyecto.
+
+### Funcionalidades Propuestas:
+1. **Gestión avanzada de roles:**
+   - Secretario: Gestionar calendarios, reuniones y gastos básicos.
+   - Responsable: Supervisar y validar tareas, asistencia y progreso.
+   - Contratista: Registrar costos laborales específicos y asignación a proyectos concretos.
+2. **Métricas de desempeño:**
+   - Productividad basada en tareas completadas, puntualidad y tiempo dedicado.
+   - Estadísticas de desempeño por labor o habilidad.
+3. **Gestión de habilidades:**
+   - Filtro por especialidad para asignar colaboradores a proyectos de forma estratégica.
+4. **Historial de colaborador:**
+   - Registro de proyectos asignados, tareas completadas y asistencia histórica.
+5. **Gamificación:**
+   - Insignias o reconocimientos digitales por desempeño destacado.
+6. **Asistencia geolocalizada:**
+   - Registro de asistencia con validación de ubicación.
+
+### Reportes:
+- Asistencia por colaborador (diaria, semanal, mensual).
+- Productividad por colaborador y por proyecto.
+- Uso de habilidades y especialidades en proyectos.
+
+---
+
+## **2. Proyectos**
+
+### Funcionalidades Actuales:
+- **Gestión de proyectos:**
+  - Creación y asignación de colaboradores a cada proyecto.
+  - Visualización de cronogramas en un calendario y cartas Gantt.
+- **Gestión de tareas:**
+  - Asignación de responsables a cada tarea.
+  - Estados de las tareas: "por hacer", "en curso", "finalizado".
+  - Prioridad de tareas para destacar actividades urgentes.
+  - Identificación de tareas retrasadas al superar su fecha límite.
+- **Presupuesto del proyecto:**
+  - Registro del "valor de presupuesto" (valor a cobrar).
+  - Registro del "valor costo" (costo estimado de ejecución).
+
+### Funcionalidades Propuestas:
+1. **Gestión avanzada de recursos:**
+   - Relacionar presupuesto y materiales con tareas específicas.
+   - Submódulo de inventario básico para materiales.
+2. **Dependencias en el Gantt:**
+   - Configuración de tareas dependientes para planificar mejor.
+3. **Evaluación de riesgos:**
+   - Clasificar tareas y proyectos según niveles de riesgo.
+4. **Comentarios y revisiones:**
+   - Agregar actualizaciones y validaciones de tareas en tiempo real.
+5. **Hitos del proyecto:**
+   - Configuración de objetivos clave y medición de avances hacia ellos.
+
+### Reportes:
+- Progreso del proyecto: porcentaje de tareas completadas, retrasos y próximas fechas límite.
+- Comparativa de proyectos: tiempo estimado vs. tiempo real, presupuesto estimado vs. gastos.
+- Desglose de recursos usados (presupuesto, materiales, tiempo de colaboradores).
+
+---
+
+## **3. Finanzas**
+
+### Funcionalidades Actuales:
+- **Wallets generales:**
+  - Registro de ingresos y gastos, clasificados por categorías (ejemplo: ganancias, mercadería, gasolina, etc.).
+- **Gráfico Donut:**
+  - Visualización de saldo actual, ingresos y gastos.
+- **Presupuesto del proyecto:**
+  - Cálculo de ganancias basado en "valor de presupuesto" y "valor costo".
+
+### Funcionalidades Propuestas:
+1. **Wallets por proyecto:**
+   - Asociar billeteras específicas a cada proyecto para mayor control de ingresos y gastos.
+2. **Costos laborales automatizados:**
+   - Registro automático de costos por asistencia de trabajadores y contratistas asignados.
+3. **Integración contable:**
+   - Exportación de datos a software contable (QuickBooks, Zoho, Excel).
+   - Generación automática de facturas basadas en presupuestos.
+4. **Gráficos avanzados:**
+   - Visualización interactiva de ingresos vs. gastos por periodo, categoría y proyecto.
+5. **Alertas financieras:**
+   - Notificaciones cuando los gastos excedan presupuestos asignados o ingresos insuficientes.
+6. **Previsión financiera:**
+   - Proyecciones basadas en tendencias históricas.
+
+### Reportes:
+- Balance general: ingresos y gastos acumulados de todas las billeteras.
+- Rentabilidad por proyecto: comparación entre presupuesto y costos reales.
+- Flujo de caja por periodos: ingresos y gastos mes a mes.
+
+---
+
+## **Funciones Generales**
+
+### Funcionalidades Propuestas:
+1. **Dashboard centralizado:**
+   - Indicadores clave (KPIs) de los tres módulos en un solo lugar: productividad, cronogramas y finanzas.
+2. **Sistema de alertas:**
+   - Notificaciones para tareas retrasadas, asistencias faltantes, límites presupuestarios excedidos, etc.
+3. **Multilinguaje:**
+   - Soporte para múltiples idiomas según el mercado objetivo.
+4. **App móvil:**
+   - Registro rápido de asistencias, actualización de tareas y acceso a reportes desde dispositivos móviles.
+5. **Historial completo:**
+   - Auditorías internas de cada proyecto, colaborador y billetera.
+6. **Objetivos SMART:**
+   - Establecimiento de metas específicas, medibles, alcanzables, relevantes y con tiempo definido.
+
+---
+
+WorkVision busca convertirse en una herramienta integral para la gestión eficiente de proyectos, colaboradores y finanzas, proporcionando datos claros, automatización de procesos y análisis detallado para una mejor toma de decisiones. A futuro, se desarrollarán nuevos módulos como "Cotización", "Presupuesto" y "Pagos", entre otros, para optimizar aún más el desarrollo y control de proyectos.
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Tu aplicación web WorkVision App, según el análisis de la base de datos actualizada (construcheck (7).sql) y lo que me has contado, es una plataforma modular de gestión empresarial multicompañía orientada a diversos tipos de negocios: desde constructoras y talleres hasta pastelerías o revendedores.
+
+🔑 Flujo de Registro y Perfil Inicial
+Usuario (users):
+Se crea con nombre, email y contraseña.
+
+Cliente (clients):
+Se vincula al usuario y almacena datos personales como nombre completo, RUT, dirección, teléfono y correo.
+
+Datos Bancarios (bank_data):
+Se puede registrar la cuenta bancaria (opcional por ahora, pero prevista para integraciones de pago).
+
+Empresa (companies):
+El cliente registra una empresa con nombre, contacto, RUT, dirección, tipo de negocio (proyectos o ventas/pedidos), etc.
+
+🧭 Módulos Principales
+1. Dashboard
+Panel con estadísticas, gráficos y accesos rápidos a otros módulos.
+
+2. Colaboradores (workers)
+Registro de empleados.
+
+Asociación empresa-colaborador (workers_companies).
+
+CRUD de colaboradores.
+
+3. Proyectos / Ventas (según tipo de empresa)
+Si la empresa maneja proyectos, se accede a tareas, asistencias, y programación de ejecución.
+
+Si la empresa maneja pedidos/ventas, se accede a:
+
+Formulario de orden de venta/pedido (orders, order_details)
+
+Cliente (consumers), productos (products_services)
+
+Métodos de pago, montos abonados, comentarios
+
+Estado del pedido (order_states)
+
+4. Inventarios (inventariess)
+Este módulo es el más avanzado y escalable, adaptado a múltiples tipos de negocio:
+
+Productos y servicios registrados en products_services.
+
+Composición de productos:
+Usa:
+
+product_compositions: definición de una receta o confección.
+
+composition_items: materias primas o productos usados (componentes).
+
+Inventario físico:
+Se toma una “foto” periódica del stock (por día o mes).
+
+Producción:
+Tabla production_orders para registrar producción efectiva y production_consumptions para registrar materiales consumidos.
+
+Esto permite calcular costo real de producción, control de stock, y alertas por baja de materiales.
+
+5. Finanzas (records, wallets)
+Ingresos y egresos asociados a billeteras y categorías.
+
+Registro de movimientos por fecha, categoría, y archivo de respaldo si aplica.
+
+🏭 Casos Cubiertos por el Diseño
+✅ Negocios de producción o confección
+Una pastelería, sastrería o carpintería puede:
+
+Crear recetas.
+
+Consumir materias primas automáticamente al producir.
+
+Calcular el costo real unitario.
+
+Ver cuándo debe reponer stock de insumos.
+
+✅ Negocios de reventa
+Una tienda que compra y revende puede:
+
+Registrar compras a proveedores (purchase_orders, purchase_order_items).
+
+Asignar precio de compra y venta.
+
+Generar ventas directas sin producción.
+
+✅ Empresas con proyectos
+Constructoras, agencias, etc. pueden:
+
+Gestionar proyectos (projects), tareas (tasks), y asistencia de personal (attendances).
+
+Asociar trabajadores a proyectos.
+
+🧱 Aspectos Técnicos
+Laravel + Vue.js + Inertia: SPA en monolito, con rutas backend bien integradas.
+
+MySQL: base relacional estructurada y normalizada.
+
+Escalable hacia Node.js para funcionalidades en tiempo real (como dashboards o sincronización de producción).
+
+🔧 Mejores prácticas que estás aplicando:
+Modularidad por tipo de negocio.
+
+Multiempresa por cliente.
+
+Control de stock avanzado y ajustado a la realidad de diferentes giros.
+
+Preparación para escalar hacia integraciones (bancos, APIs de pagos, etc).

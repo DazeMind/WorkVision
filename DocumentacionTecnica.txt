@@ -1,0 +1,100 @@
+# Documentación Técnica - WorkVision App
+
+## 📄 Resumen General
+
+**WorkVision App** es una aplicación web modular de gestión empresarial orientada a empresas que operan con proyectos, producción, venta de productos o servicios, o reventa. Está desarrollada con Laravel + Vue.js en un monolito SPA mediante Inertia.js, y utiliza MySQL como sistema de base de datos relacional.
+
+## ⚙️ Tecnologías Utilizadas
+
+* **Frontend:** Vue.js
+* **Backend:** Laravel
+* **SPA Manager:** Inertia.js
+* **Base de datos:** MySQL
+* **Planeado a futuro:** Integración con Node.js para funciones en tiempo real (realtime)
+
+## 👤 Flujo de Registro de Usuarios
+
+1. **Registro de usuario (tabla: `users`)**
+
+   * Datos: nombre, correo electrónico, contraseña.
+
+2. **Formulario de cliente (tabla: `clients`)**
+
+   * Datos personales: nombre completo, RUT, dirección, teléfono, email.
+
+3. **Perfil del cliente**
+
+   * Registro de datos bancarios (tabla: `bank_data`)
+   * Registro de empresa (tabla: `companies`) con:
+
+     * Nombre, correo, RUT empresa, dirección, teléfono, fecha de creación
+     * Indicador de tipo de gestión: proyectos o ventas/pedidos
+
+## 🔹 Módulos del Sistema
+
+### 1. Dashboard
+
+* Estadísticas, gráficos y accesos rápidos.
+
+### 2. Colaboradores
+
+* CRUD de trabajadores (`workers`)
+* Relación trabajador-empresa (`workers_companies`)
+
+### 3. Proyectos / Ventas
+
+* Si la empresa maneja **proyectos**:
+
+  * Gestión de proyectos (`projects`) y tareas (`tasks`)
+  * Registro de asistencias (`attendances`)
+
+* Si la empresa maneja **ventas/pedidos**:
+
+  * Registro de ordenes (`orders`, `order_details`)
+  * Cliente asociado (`consumers`)
+  * Productos/servicios (`products_services`)
+  * Cálculo automático de totales y descuento
+
+### 4. Inventario y Producción
+
+* Productos simples o servicios (`products_services`)
+* Insumos o materias primas (`materials`)
+* Recetas o confecciones (`product_compositions` + `composition_items`)
+* Registro de producción (`production_orders` + `production_consumptions`)
+* Registro de inventario físico (`inventariess`)
+
+### 5. Finanzas
+
+* Registro de ingresos y egresos (`records`)
+* Asociación a billeteras (`wallets`) y categorías (`categories`)
+* Subida de respaldo (boleta, imagen, etc.)
+
+### 6. Compras / Reventa
+
+* Proveedores (`suppliers`)
+* Órdenes de compra (`purchase_orders`, `purchase_order_items`)
+* Cálculo de costo promedio y margen en ventas
+
+## 🔐 Seguridad y Auditoría
+
+* Registro de acciones del usuario (`audit_logs`)
+* Estados de registro y control de eliminación lógica (`deleted_at`, `id_state`)
+
+## 👨‍💼 Escalabilidad Planeada
+
+* Multiempresa por cliente (actualmente 1 empresa por cliente, preparado para múltiples)
+* Funciones realtime mediante Node.js y WebSockets
+* API para integración con servicios de pago, facturación, bancos
+* Aplicación móvil futura (compartiendo backend actual)
+
+## 📊 Objetivos del Sistema
+
+* Control centralizado de operaciones empresariales
+* Adaptabilidad a diferentes rubros (construcción, gastronomía, comercio, servicios)
+* Optimizar la toma de decisiones con información en tiempo real
+
+---
+
+**Estado actual:** MVP funcional con módulos base operativos. En desarrollo continuo.
+
+**Próximos pasos:** profundizar gestión de compras, integrar KPIs y alertas en Dashboard, y comenzar la base para la app móvil.

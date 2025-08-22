@@ -1,0 +1,105 @@
+<script setup>
+import { nextTick, ref } from 'vue'
+import { useForm } from '@inertiajs/inertia-vue3'
+import Label from '@/Components/Label.vue'
+import Input from '@/Components/Input.vue'
+import InputError from '@/Components/InputError.vue'
+import Modal from '@/Components/Modal.vue'
+import Button from '@/Components/Button.vue'
+
+const confirmingUserDeletion = ref(false)
+const passwordInput = ref(null)
+
+const form = useForm({
+    password: '',
+})
+
+const confirmUserDeletion = () => {
+    confirmingUserDeletion.value = true
+
+    nextTick(() => passwordInput.value.focus())
+}
+
+const deleteUser = () => {
+    form.delete(route('profile.destroy'), {
+        preserveScroll: true,
+        onSuccess: () => closeModal(),
+        onError: () => passwordInput.value.focus(),
+        onFinish: () => form.reset(),
+    })
+}
+
+const closeModal = () => {
+    confirmingUserDeletion.value = false
+
+    form.reset()
+}
+</script>
+
+<template>
+    <section class="space-y-6">
+        <header>
+            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                Borrar Cuenta
+            </h2>
+
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                Una vez que se elimine su cuenta, todos sus recursos y datos
+                se eliminarán de forma permanente. Antes de eliminar su cuenta, descargue
+                cualquier dato o información que desee conservar.
+            </p>
+        </header>
+
+        <Button variant="danger" @click="confirmUserDeletion">
+            Eliminar cuenta de forma permanente
+        </Button>
+
+        <Modal :show="confirmingUserDeletion" @close="closeModal">
+            <div class="p-6">
+                <h2
+                    class="text-lg font-medium text-gray-900 dark:text-gray-100"
+                >
+                    ¿Estas seguro que deseas eliminar tu cuenta?
+                </h2>
+
+                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                    Una vez que se elimine su cuenta, todos sus recursos y datos
+                    se eliminarán de forma permanente. Ingrese su contraseña para
+                    confirmar que desea eliminar su cuenta de forma permanente.
+                </p>
+
+                <div class="mt-6">
+                    <Label for="password" value="Contraseña" class="sr-only" />
+
+                    <Input
+                        id="password"
+                        ref="passwordInput"
+                        v-model="form.password"
+                        type="password"
+                        class="mt-1 block w-3/4"
+                        placeholder="Contraseña"
+                        @keyup.enter="deleteUser"
+                    />
+
+                    <InputError :message="form.errors.password" class="mt-2" />
+                </div>
+
+                <div class="mt-6 flex justify-end">
+                    <Button variant="secondary" @click="closeModal">
+                        Cancelar
+                    </Button>
+
+                    <Button
+                        variant="danger"
+                        class="ml-3"
+                        :class="{ 'opacity-25': form.processing }"
+                        :disabled="form.processing"
+                        @click="deleteUser"
+                    >
+                        Eliminar cuenta
+                    </Button>
+                </div>
+            </div>
+        </Modal>
+    </section>
+</template>
